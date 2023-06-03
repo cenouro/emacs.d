@@ -1,0 +1,30 @@
+---
+- name: (ltex-ls) Ensure ltex-ls parent directories
+  ansible.builtin.file:
+    path: '{{ ltex_d }}'
+    state: directory
+
+- name: (ltex-ls) Download ltex-ls
+  ansible.builtin.get_url:
+    url: '{{ ltex_url }}'
+    dest: '{{ ltex_compressed }}'
+
+- name: (ltex-ls) Unpack ltex-ls
+  ansible.builtin.unarchive:
+    src: '{{ ltex_compressed }}'
+    dest: '{{ ltex_d }}'
+    creates: '{{ ltex_uncompressed }}'
+
+- name: (ltex-ls) Install ltex-ls dependencies
+  ansible.builtin.apt:
+    name: default-jre
+    state: present
+
+- name: |
+    (ltex-ls) Install ltex-ls]
+    DESC [This symlink is required and has to be "latest"
+  ansible.builtin.file:
+    src: '{{ ltex_uncompressed }}'
+    dest: '{{ ltex_d }}/latest'
+    state: link
+...

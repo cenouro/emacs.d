@@ -1,0 +1,27 @@
+---
+- name: Install Emacs and dependencies
+  include_tasks: dependencies.yml
+
+- name: Ensure Emacs directory
+  ansible.builtin.file:
+    dest: '{{ emacs_d }}'
+    state: directory
+
+- name: Link assets
+  ansible.builtin.file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+    - '{{ init_el }}'
+    - '{{ elisp }}'
+
+- name: Create custom.el
+  ansible.builtin.shell:
+    cmd: touch '{{ custom_el }}'
+    creates: '{{ custom_el }}'
+
+
+- name: Install ltex-ls (LanguageTool LSP)
+  include_tasks: lsp-LanguageTool-ltex-ls.yml
+...
