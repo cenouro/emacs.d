@@ -1,8 +1,9 @@
 ---
 ltex_d: '{{ emacs_d }}/.cache/lsp/ltex-ls'
+ltex_download_cache_dir: '{{ XDG_CACHE_HOME }}/ltex-ls'
 ltex_version: '16.0.0'
 ltex_basename: 'ltex-ls-{{ ltex_version }}'
-ltex_compressed: '{{ ltex_d }}/{{ ltex_basename }}.tar.gz'
+ltex_compressed: '{{ ltex_download_cache_dir }}/{{ ltex_basename }}.tar.gz'
 ltex_uncompressed: '{{ ltex_d }}/{{ ltex_basename }}'
 ltex_repo: 'https://github.com/valentjn/ltex-ls'
 ltex_url: '{{ ltex_repo }}/releases/download/{{ ltex_version }}/ltex-ls-{{ ltex_version }}.tar.gz'

@@ -1,8 +1,11 @@
 ---
-- name: Ensure ltex-ls parent directories
+- name: Ensure ltex-ls directories
   ansible.builtin.file:
     path: '{{ ltex_d }}'
     state: directory
+  loop:
+    - '{{ ltex_d }}'
+    - '{{ ltex_download_cache_dir }}'
 
 - name: Download ltex-ls
   ansible.builtin.get_url:
