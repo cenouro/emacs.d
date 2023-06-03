@@ -20,8 +20,4 @@
   ansible.builtin.shell:
     cmd: touch '{{ custom_el }}'
     creates: '{{ custom_el }}'
-
-
-- name: Install ltex-ls (LanguageTool LSP)
-  include_tasks: lsp-LanguageTool-ltex-ls.yml
 ...

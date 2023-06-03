@@ -5,10 +5,13 @@
   vars:
     - HOME: '{{ ansible_env.HOME }}'
     - PWD: '{{ ansible_env.PWD }}'
+
     - XDG_CONFIG_HOME: '{{ HOME }}/.config'
     - XDG_CACHE_HOME: '{{ HOME }}/.cache'
     - XDG_DATA_HOME: '{{ HOME }}/.local/share'
     - XDG_STATE_HOME: '{{ HOME }}/.local/state'
+
+    - emacs_d: '{{ HOME }}/.emacs.d'
 
   pre_tasks:
     - name: Ensure XDG directories
@@ -24,6 +27,7 @@
   roles:
     - emacs
     - gnome
+    - lsp-ltex
 
   tasks:
     - name: Print all available facts (run with --tags debug)
