@@ -1,6 +1,28 @@
 ---
-- name: Install Emacs and dependencies
-  include_tasks: dependencies.yml
+- name: Install Emacs
+  community.general.snap:
+    name: emacs
+    channel: stable
+    classic: true
+    state: present
+  become: true
+
+- name: Install packages for native compilation
+  ansible.builtin.apt:
+    pkg:
+      - gcc-10
+      - libgccjit-10-dev
+      - libgccjit0
+      - libjansson-dev
+      - libjansson4
+    state: present
+  become: true
+
+- name: Install JetBrains Mono
+  ansible.builtin.apt:
+    pkg: fonts-jetbrains-mono
+    state: present
+  become: true
 
 - name: Ensure Emacs directory
   ansible.builtin.file:
