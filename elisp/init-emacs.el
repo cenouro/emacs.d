@@ -1,0 +1,132 @@
+;;; init-emacs.el --- General configurations  -*- lexical-binding: t; -*-
+
+;;; Commentary:
+;;
+
+;;; Code:
+
+;;; Bindings and QoL
+;;
+(global-set-key (kbd "C-x k")   #'kill-this-buffer)
+(global-set-key (kbd "C-x C-b") #'ibuffer)
+
+(electric-pair-mode 1)
+(global-subword-mode 1)
+
+(require 'savehist)
+(savehist-mode)
+
+
+;;; Encoding, whitespace and tabs
+;;
+;; TODO: review these encoding settings
+(set-default-coding-systems 'utf-8-unix)
+(set-language-environment   "UTF-8")
+
+(add-hook 'before-save-hook
+          #'delete-trailing-whitespace)
+
+(customize-set-variable 'indent-tabs-mode nil)
+(customize-set-variable 'tab-stop-list nil)
+(customize-set-variable 'tab-width 4)
+(customize-set-variable 'backward-delete-char-untabify-method nil)
+
+
+;;; Security
+;;
+(defun cnr/clear-view-lossage ()
+  "Prevent `view-lossage' from leaking passwords.
+See `comint-send-invisible' for security note."
+  (clear-this-command-keys))
+
+(advice-add 'view-lossage :before #'cnr/clear-view-lossage)
+
+
+;;; Sane defaults
+;;
+(customize-set-variable 'history-delete-duplicates t)
+(customize-set-variable 'require-final-newline     t)
+(customize-set-variable 'scroll-conservatively     most-positive-fixnum)
+(customize-set-variable 'sentence-end-double-space nil)
+
+
+;;; Relevant UI configurations
+;;
+(set-fringe-mode 12)
+(customize-set-variable 'ring-bell-function #'ignore)
+
+(dolist (mode '(conf-mode-hook
+                prog-mode-hook
+                text-mode-hook))
+  (add-hook mode #'display-line-numbers-mode))
+(customize-set-variable 'display-line-numbers-type 'visual)
+(customize-set-variable 'display-line-numbers-width 3)
+
+;; Cursor
+(blink-cursor-mode -1)
+(global-hl-line-mode 1)
+
+(add-hook 'activate-mark-hook   #'(lambda () (setq cursor-type 'bar)))
+(add-hook 'deactivate-mark-hook #'(lambda () (setq cursor-type 'box)))
+
+;; Modeline tweaks
+(column-number-mode 1)
+
+;; Typeface
+(defun cnr/scale-font-height (height)
+  "Scale HEIGHT when Gnome's Large Text is enabled."
+  (let* ((gsettings-cmd "gsettings get org.gnome.desktop.interface text-scaling-factor")
+         (text-scaling-factor (string-to-number (shell-command-to-string gsettings-cmd))))
+    ;; x * text-scaling-factor = HEIGHT
+    ;; x = HEIGHT / text-scaling-factor
+    (/ height text-scaling-factor)))
+
+(set-face-attribute 'default nil
+                    :family "JetBrains Mono"
+                    :height (round (cnr/scale-font-height 132))
+                    :slant  'normal
+                    :weight 'normal
+                    :width  'normal)
+
+
+;;; Show Matching Parenthesis
+;;
+(show-paren-mode 1)
+(customize-set-variable 'show-paren-delay 0)
+
+(defun cnr/show-paren--default ()
+  "Slightly improved version of `show-paren--default'.
+When point is before a closing parenthesis, highlight the opening one.
+
+This differs from `show-paren--default', which highlights the
+opening parenthesis only when point is after the closing one."
+  (if (looking-at "\\s)")
+      (save-excursion (forward-char 1) (funcall #'show-paren--default))
+    (funcall #'show-paren--default)))
+
+(customize-set-variable 'show-paren-data-function
+                        #'cnr/show-paren--default
+                        "Make show-paren behave sanely")
+
+
+;;; The usual suspects
+;;
+;; TODO: revise backup settings
+(customize-set-variable 'auto-save-default nil)
+(customize-set-variable 'backup-inhibited t)
+(customize-set-variable 'make-backup-files nil)
+
+;; TODO: deprecate this and launch emacs with -mm
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(customize-set-variable 'inhibit-startup-screen t)
+
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(tooltip-mode -1)
+
+
+(provide 'init-emacs)
+
+;;; init-emacs.el ends here
