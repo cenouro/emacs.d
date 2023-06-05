@@ -116,9 +116,6 @@ opening parenthesis only when point is after the closing one."
 (customize-set-variable 'backup-inhibited t)
 (customize-set-variable 'make-backup-files nil)
 
-;; TODO: deprecate this and launch emacs with -mm
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
 (customize-set-variable 'inhibit-startup-screen t)
 
 (menu-bar-mode -1)

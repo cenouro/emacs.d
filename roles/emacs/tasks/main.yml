@@ -42,4 +42,12 @@
   ansible.builtin.shell:
     cmd: touch '{{ custom_el }}'
     creates: '{{ custom_el }}'
+
+- name: Copy Emacs snap app launcher to ~/.local/share/applications/
+  ansible.builtin.copy:
+    src: /var/lib/snapd/desktop/applications/emacs_emacs.desktop
+    dest: /home/cenouro/.local/share/applications/emacs_emacs.desktop
+    mode: preserve
+    force: false
+  notify: Customize Emacs app launcher
 ...
