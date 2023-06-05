@@ -19,8 +19,8 @@
 
 ;;; Encoding, whitespace and tabs
 ;;
-;; TODO: review these encoding settings
-(set-default-coding-systems 'utf-8-unix)
+(prefer-coding-system		'utf-8)
+(set-default-coding-systems 'utf-8)
 (set-language-environment   "UTF-8")
 
 (add-hook 'before-save-hook
