@@ -4,15 +4,10 @@
 ;;
 ;;  TODO: check if ansible-doc has indeed been deprecated
 
-
 ;;; Code:
 (require 'package)
-
 (unless (package-installed-p 'ansible-doc)
   (package-install 'ansible-doc))
-
-(unless (package-installed-p 'yaml-mode)
-  (package-install 'yaml-mode))
 
 
 (with-eval-after-load 'yaml-mode
@@ -36,10 +31,6 @@
                                       ansible-become-prompt-regexp)
                               "Make Emacs prompt for BECOME password."))))
 
-
-(require 'yaml-mode)
-
 
 (provide 'init-ansible)
-
 ;;; init-ansible.el ends here

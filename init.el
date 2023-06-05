@@ -39,10 +39,6 @@
 (require 'init-ruby)
 
 
-(unless (package-installed-p 'markdown-mode)
-  (package-install 'markdown-mode))
-(require 'markdown-mode)
-
 (unless (package-installed-p 'modus-themes)
   (package-install 'modus-themes))
 (require 'modus-themes)
