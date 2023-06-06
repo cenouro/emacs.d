@@ -109,13 +109,24 @@ opening parenthesis only when point is after the closing one."
                         "Make show-paren behave sanely")
 
 
+;;; Auto-save and backups
+;;
+(customize-set-variable 'auto-save-file-name-transforms
+                        `((".*" ,(concat user-emacs-directory "auto-save-list/") :uniquify)))
+(customize-set-variable 'auto-save-interval 256)
+(customize-set-variable 'auto-save-timeout  120)
+
+(customize-set-variable 'backup-directory-alist
+                        `((".*" . ,(concat user-emacs-directory "backups"))))
+(customize-set-variable  'backup-by-copying t "Don't clobber symbolic links")
+(customize-set-variable  'delete-old-versions t)
+(customize-set-variable  'kept-new-versions 6)
+(customize-set-variable  'kept-old-versions 2)
+(customize-set-variable  'version-control t "Use versioned backups")
+
+
 ;;; The usual suspects
 ;;
-;; TODO: revise backup settings
-(customize-set-variable 'auto-save-default nil)
-(customize-set-variable 'backup-inhibited t)
-(customize-set-variable 'make-backup-files nil)
-
 (customize-set-variable 'inhibit-startup-screen t)
 
 (menu-bar-mode -1)
@@ -125,5 +136,4 @@ opening parenthesis only when point is after the closing one."
 
 
 (provide 'init-emacs)
-
 ;;; init-emacs.el ends here
