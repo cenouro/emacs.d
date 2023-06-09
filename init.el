@@ -29,7 +29,7 @@
 
 (require 'init-flycheck)
 (require 'init-lsp-mode)
-(require 'init-projectile)
+;; (require 'init-projectile)
 
 (require 'init-prog)
 (require 'init-ansible)
