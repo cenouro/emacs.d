@@ -2,7 +2,6 @@
 
 ;;; Commentary:
 ;;
-;; TODO: pin package to melpa-stable
 
 ;;; Code:
 (require 'package)

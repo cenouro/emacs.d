@@ -11,6 +11,12 @@
                           ("melpa" . "https://melpa.org/packages/")
                           ("melpa-stable" .
                            "https://stable.melpa.org/packages/")))
+
+(customize-set-variable 'package-pinned-packages
+                        '((corfu . "elpa")
+                          (flycheck . "melpa-stable")
+                          (vertico . "elpa"))
+                        "Must be set before `package-refresh-contents'")
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))

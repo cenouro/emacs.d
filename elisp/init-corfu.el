@@ -2,7 +2,6 @@
 
 ;;; Commentary:
 ;;
-;; TODO: pin to elpa
 
 ;;; Code:
 (require 'package)

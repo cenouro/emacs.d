@@ -8,9 +8,6 @@
 ;;
 ;; I still believe Vertico has yet to pass the test of time, but it
 ;; feels like the time to retire Helm has come.
-;;
-;; TODO: pin to elpa
-;;
 
 ;;; Code:
 (require 'package)
