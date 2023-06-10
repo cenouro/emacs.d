@@ -38,6 +38,7 @@
 ;; (require 'init-projectile)
 
 (require 'init-prog)
+(require 'init-asdf)
 (require 'init-ansible)
 (require 'init-git)
 (require 'init-magit)

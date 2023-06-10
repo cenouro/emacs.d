@@ -26,6 +26,7 @@
 
   roles:
     - emacs
+    - asdf-el
     - gnome
     - lsp-ltex
 
