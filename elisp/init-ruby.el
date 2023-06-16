@@ -2,18 +2,13 @@
 
 ;;; Commentary:
 ;;
-;; TODO: maybe remove chruby and use asdf-vm instead?
 
 ;;; Code:
 (require 'package)
 
-(dolist (pkg '(chruby bundler inf-ruby yari))
+(dolist (pkg '(bundler inf-ruby yari))
   (unless (package-installed-p pkg)
     (package-install pkg)))
-
-
-(require 'chruby)
-(add-hook 'ruby-mode-hook #'chruby-use-corresponding -90)
 
 
 (with-eval-after-load 'inf-ruby
