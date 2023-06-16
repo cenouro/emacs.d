@@ -17,6 +17,7 @@
 (customize-set-variable 'lsp-keymap-prefix "C-c l"
                         "Must be set before requiring lsp-mode")
 
+(customize-set-variable 'lsp-auto-execute-action nil)
 (customize-set-variable 'lsp-enable-suggest-server-download nil)
 (customize-set-variable 'lsp-headerline-breadcrumb-enable nil)
 
