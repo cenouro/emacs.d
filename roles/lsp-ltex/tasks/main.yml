@@ -22,6 +22,7 @@
   ansible.builtin.apt:
     name: default-jre
     state: present
+  become: true
 
 - name: |
     Install ltex-ls]
