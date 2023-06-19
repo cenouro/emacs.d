@@ -1,7 +1,7 @@
 ---
 - name: Ensure ltex-ls directories
   ansible.builtin.file:
-    path: '{{ ltex_d }}'
+    path: '{{ item }}'
     state: directory
   loop:
     - '{{ ltex_d }}'
