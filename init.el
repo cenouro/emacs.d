@@ -14,7 +14,7 @@
 
 (customize-set-variable 'package-pinned-packages
                         '((corfu . "elpa")
-                          (flycheck . "melpa-stable")
+                          ;; (flycheck . "melpa-stable")
                           (vertico . "elpa"))
                         "Must be set before `package-refresh-contents'")
 (package-initialize)
@@ -33,8 +33,8 @@
 (require 'init-orderless)
 (require 'init-vertico)
 
-(require 'init-flycheck)
-(require 'init-lsp-mode)
+;; (require 'init-flycheck)
+;; (require 'init-lsp-mode)
 ;; (require 'init-projectile)
 
 (require 'init-prog)
