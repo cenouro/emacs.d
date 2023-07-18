@@ -28,7 +28,6 @@
     - emacs
     - asdf-el
     - gnome
-    - lsp-ltex
 
   tasks:
     - name: Print all available facts (run with --tags debug)
