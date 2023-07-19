@@ -14,6 +14,15 @@
     - emacs_d: '{{ HOME }}/.emacs.d'
 
   pre_tasks:
+    - name: Ensure user folder in /opt/
+      ansible.builtin.file:
+        path: '/opt/{{ ansible_facts.user_id }}'
+        state: directory
+        owner: '{{ ansible_facts.user_id }}'
+        group: '{{ ansible_facts.user_id }}'
+        mode: '750'
+      become: true
+
     - name: Ensure XDG directories
       ansible.builtin.file:
         path: '{{ item }}'
@@ -27,6 +36,7 @@
   roles:
     - emacs
     - asdf-el
+    - languagetool
     - gnome
 
   tasks:

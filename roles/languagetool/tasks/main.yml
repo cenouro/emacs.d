@@ -1,0 +1,23 @@
+---
+- name: Install LanguageTool dependency
+  ansible.builtin.apt:
+    name: default-jre
+    state: present
+  become: true
+
+- name: Install LanguageTool-{{ version }}
+  ansible.builtin.unarchive:
+    remote_src: true
+    src: '{{ url }}'
+    dest: '/opt/{{ ansible_facts.user_id }}/'
+    owner: '{{ ansible_facts.user_id }}'
+    group: '{{ ansible_facts.user_id }}'
+    creates: '/opt/{{ ansible_facts.user_id }}/LanguageTool-{{ version }}'
+
+
+- name: Create symlink LanguageTool -> LanguageTool-{{ version }}
+  ansible.builtin.file:
+    src: '/opt/{{ ansible_facts.user_id }}/LanguageTool-{{ version }}'
+    dest: '/opt/{{ ansible_facts.user_id }}/LanguageTool'
+    state: link
+...
