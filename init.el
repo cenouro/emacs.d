@@ -37,6 +37,7 @@
 ;; (require 'init-lsp-mode)
 ;; (require 'init-projectile)
 
+(require 'init-flymake)
 (require 'init-eglot)
 (require 'init-prog)
 (require 'init-asdf)
