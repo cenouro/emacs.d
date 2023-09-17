@@ -52,6 +52,9 @@ See `comint-send-invisible' for security note."
 
 ;;; Relevant UI configurations
 ;;
+(customize-set-variable 'ansi-color-for-compilation-mode t)
+(add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
+
 (set-fringe-mode 12)
 (customize-set-variable 'ring-bell-function #'ignore)
 
