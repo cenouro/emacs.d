@@ -4,30 +4,20 @@
 ;;
 
 ;;; Code:
-(require 'package)
+(with-eval-after-load 'package
+  (dolist (pkg '(bundler inf-ruby yari))
+    (unless (package-installed-p pkg)
+      (package-install pkg))))
 
-(dolist (pkg '(bundler inf-ruby yari))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
 
-
-(with-eval-after-load 'inf-ruby
-  (require 'bundler))
-
-
-(require 'inf-ruby)
-(add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
-
-
-(require 'yari)
 (with-eval-after-load 'ruby-mode
-  (define-key ruby-mode-map (kbd "C-c ?") #'yari))
+  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
+  (define-key ruby-mode-map (kbd "C-c ?") #'yari)
 
-
-(with-eval-after-load 'compile
-  (add-to-list 'compilation-error-regexp-alist-alist
-               '(rails-minitest-failure "\\[\\(.*?.rb\\):\\([0-9]+\\)\\]:$" 1 2))
-  (add-to-list 'compilation-error-regexp-alist 'rails-minitest-failure))
+  (with-eval-after-load 'compile
+    (add-to-list 'compilation-error-regexp-alist-alist
+                 '(rails-minitest-failure "\\[\\(.*?.rb\\):\\([0-9]+\\)\\]:$" 1 2))
+    (add-to-list 'compilation-error-regexp-alist 'rails-minitest-failure)))
 
 
 (provide 'init-ruby)
