@@ -5,7 +5,7 @@
 
 ;;; Code:
 (with-eval-after-load 'package
-  (dolist (pkg '(bundler inf-ruby yari))
+  (dolist (pkg '(inf-ruby yari))
     (unless (package-installed-p pkg)
       (package-install pkg))))
 
