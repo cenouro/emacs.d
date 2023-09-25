@@ -9,6 +9,12 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; Common dependencies for other packages
+(unless (package-installed-p 's)
+  (package-vc-install "https://github.com/magnars/s.el"))
+(unless (package-installed-p 'f)
+  (package-vc-install "https://github.com/rejeep/f.el"))
+
 
 (add-to-list 'load-path (locate-user-emacs-file "elisp"))
 
