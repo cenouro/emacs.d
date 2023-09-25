@@ -9,7 +9,7 @@
 
 ;; flymake-languagetool
 (unless (package-installed-p 'flymake-languagetool)
-  (package-install 'flymake-languagetool))
+  (package-vc-install "https://github.com/emacs-languagetool/flymake-languagetool"))
 (require 'flymake-languagetool)
 
 (customize-set-variable 'flymake-languagetool-server-jar
