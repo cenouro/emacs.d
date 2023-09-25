@@ -5,9 +5,10 @@
 
 ;;; Code:
 (with-eval-after-load 'package
-  (dolist (pkg '(inf-ruby yari))
-    (unless (package-installed-p pkg)
-      (package-install pkg))))
+  (unless (package-installed-p 'inf-ruby)
+    (package-install 'inf-ruby))
+  (unless (package-installed-p 'yari)
+    (package-vc-install "https://github.com/hron/yari.el")))
 
 
 (with-eval-after-load 'ruby-mode
