@@ -39,21 +39,21 @@
 ;; s.el and f.el are installed by dumping the relevant files somewhere
 ;; in the load path. This is done to avoid byte-compiler errors from
 ;; irrelevant files (such as test files).
-(progn
-  (make-directory (expand-file-name "github" package-user-dir) 'noerror)
-  (add-to-list 'load-path (expand-file-name "github" package-user-dir))
+(let ((dumpster (expand-file-name "github" package-user-dir)))
+  (make-directory dumpster 'noerror)
+  (add-to-list 'load-path dumpster)
 
   (unless (require 's nil 'noerror)
     (url-copy-file (github-file "magnars/s.el" "s.el")
-                   (expand-file-name "github/s.el" package-user-dir)
+                   (expand-file-name "s.el" dumpster)
                    'noclobber))
   (unless (require 'f nil 'noerror)
     (url-copy-file (github-file "rejeep/f.el" "f.el")
-                   (expand-file-name "github/f.el" package-user-dir)
+                   (expand-file-name "f.el" dumpster)
                    'noclobber))
   (unless (require 'f-shortdoc nil 'noerror)
     (url-copy-file (github-file "rejeep/f.el" "f-shortdoc.el")
-                   (expand-file-name "github/f-shortdoc.el" package-user-dir)
+                   (expand-file-name "f-shortdoc.el" dumpster)
                    'noclobber)))
 
 
