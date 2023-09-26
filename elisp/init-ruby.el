@@ -4,7 +4,7 @@
 ;;
 
 ;;; Code:
-(with-eval-after-load 'package
+(with-eval-after-load 'init-package
   (unless (package-installed-p 'inf-ruby)
     (package-install 'inf-ruby))
   (unless (package-installed-p 'yari)
