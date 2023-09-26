@@ -6,9 +6,10 @@
 ;;; Code:
 (require 'package)
 
-(dolist (pkg '(magit magit-todos))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(unless (package-installed-p 'magit)
+  (package-install 'magit))
+(unless (package-installed-p 'magit-todos)
+  (package-vc-install (github "alphapapa/magit-todos")))
 
 
 (require 'magit)

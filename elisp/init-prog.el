@@ -12,7 +12,7 @@
 ;;; Code:
 (require 'package)
 (unless (package-installed-p 'hl-todo)
-  (package-install 'hl-todo))
+  (package-vc-install (github "tarsius/hl-todo")))
 
 
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)

@@ -4,10 +4,11 @@
 ;;
 
 ;;; Code:
-(with-eval-after-load 'package
-  (dolist (pkg '(inf-ruby yari))
-    (unless (package-installed-p pkg)
-      (package-install pkg))))
+(with-eval-after-load 'init-package
+  (unless (package-installed-p 'inf-ruby)
+    (package-install 'inf-ruby))
+  (unless (package-installed-p 'yari)
+    (package-vc-install (github "hron/yari.el"))))
 
 
 (with-eval-after-load 'ruby-mode

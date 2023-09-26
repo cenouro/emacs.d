@@ -6,9 +6,12 @@
 ;;; Code:
 (require 'package)
 
-(dolist (pkg '(vdiff vdiff-magit))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+(unless (package-installed-p 'vdiff)
+  (package-install 'vdiff))
+(unless (package-installed-p 'vdiff-magit)
+  (package-vc-install `(vdiff-magit
+                        :url ,(github "justbur/emacs-vdiff-magit")
+                        :main-file "vdiff-magit.el")))
 
 
 (require 'vdiff)

@@ -7,7 +7,7 @@
 (require 'package)
 (unless (package-installed-p 'all-the-icons)
   (progn
-    (package-install 'all-the-icons)
+    (package-vc-install (github "domtronn/all-the-icons.el"))
     (require 'all-the-icons)
     (all-the-icons-install-fonts t)))
 

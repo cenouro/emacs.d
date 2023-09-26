@@ -4,24 +4,13 @@
 ;;
 
 ;;; Code:
-(require 'package)
 
-(customize-set-variable 'package-archives
-                        '(("elpa" . "https://elpa.gnu.org/packages/")
-                          ("melpa" . "https://melpa.org/packages/")
-                          ("melpa-stable" .
-                           "https://stable.melpa.org/packages/")))
+(customize-set-variable 'custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
-(customize-set-variable 'package-pinned-packages
-                        '((corfu . "elpa")
-                          (vertico . "elpa"))
-                        "Must be set before `package-refresh-contents'")
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-
 (add-to-list 'load-path (locate-user-emacs-file "elisp"))
+
+(require 'init-package)
 
 (require 'init-emacs)
 (require 'init-ace-window)
@@ -53,10 +42,6 @@
 (require 'page-break-lines)
 (global-page-break-lines-mode)
 
-
-(customize-set-variable 'custom-file
-                        (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
 
 (provide 'init)
 ;;; init.el ends here
