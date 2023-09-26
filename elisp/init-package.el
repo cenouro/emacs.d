@@ -6,8 +6,7 @@
 ;; installs dash.el, s.el and f.el, which are common dependencies for
 ;; some other packages.
 
-;; The main goal of this file is to be used with the
-;; `with-eval-after-load':
+;; The main goal of this file is to be used with `with-eval-after-load':
 
 ;; Instead of
 ;;   (with-eval-after-load 'package ...)
