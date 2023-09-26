@@ -9,7 +9,7 @@
 (unless (package-installed-p 'magit)
   (package-install 'magit))
 (unless (package-installed-p 'magit-todos)
-  (package-vc-install "https://github.com/alphapapa/magit-todos"))
+  (package-vc-install (github "alphapapa/magit-todos")))
 
 
 (require 'magit)

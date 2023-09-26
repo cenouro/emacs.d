@@ -19,6 +19,9 @@
 
 ;;; Code:
 
+(defun github (repo)
+  (concat "https://github.com/" repo))
+
 (require 'package)
 (package-initialize)
 (unless package-archive-contents

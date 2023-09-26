@@ -9,8 +9,8 @@
 (unless (package-installed-p 'vdiff)
   (package-install 'vdiff))
 (unless (package-installed-p 'vdiff-magit)
-  (package-vc-install '(vdiff-magit
-                        :url "https://github.com/justbur/emacs-vdiff-magit"
+  (package-vc-install `(vdiff-magit
+                        :url ,(github "justbur/emacs-vdiff-magit")
                         :main-file "vdiff-magit.el")))
 
 

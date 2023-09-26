@@ -8,7 +8,7 @@
   (unless (package-installed-p 'inf-ruby)
     (package-install 'inf-ruby))
   (unless (package-installed-p 'yari)
-    (package-vc-install "https://github.com/hron/yari.el")))
+    (package-vc-install (github "hron/yari.el"))))
 
 
 (with-eval-after-load 'ruby-mode
