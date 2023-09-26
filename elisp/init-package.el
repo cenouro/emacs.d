@@ -1,4 +1,4 @@
-;;; init-package.el --- package.el configurations  -*- lexical-binding: t; -*-
+;;; init-package.el --- package.el configurations -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
@@ -16,6 +16,10 @@
 
 ;; This not only ensures that package.el has been required, but also
 ;; that the pertinent configurations have been applied.
+
+;; Note that neither MELPA nor MELPA Stable are used. I've had
+;; availability problems with them, where they can't be accessed for
+;; long periods of time.
 
 ;;; Code:
 
