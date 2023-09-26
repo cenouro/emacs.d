@@ -17,9 +17,10 @@
 ;; This not only ensures that package.el has been required, but also
 ;; that the pertinent configurations have been applied.
 
-;; Note that neither MELPA nor MELPA Stable are used. I've had
-;; availability problems with them, where they can't be accessed for
-;; long periods of time.
+;; Note that neither MELPA nor MELPA Stable are used. These archives can
+;; become unavailable for some hours (probably because all packages are
+;; being rebuilt), making Emacs unresponsive if package-refresh-contents
+;; is used.
 
 ;;; Code:
 
