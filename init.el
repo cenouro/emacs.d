@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+(customize-set-variable 'custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 (add-to-list 'load-path (locate-user-emacs-file "elisp"))
 
 (require 'init-package)
@@ -39,10 +42,6 @@
 (require 'page-break-lines)
 (global-page-break-lines-mode)
 
-
-(customize-set-variable 'custom-file
-                        (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
 
 (provide 'init)
 ;;; init.el ends here
