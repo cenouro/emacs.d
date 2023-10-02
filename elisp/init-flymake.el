@@ -37,7 +37,13 @@ derive from text-mode, such as yaml-mode and nxml-mode."
   (interactive)
   (make-local-variable 'flymake-languagetool-ignore-faces-alist)
   (customize-set-value 'flymake-languagetool-ignore-faces-alist
-                       '((text-mode font-lock-comment-face)))
+                       '((text-mode font-lock-comment-face
+                                    git-commit-comment-action
+                                    git-commit-comment-branch-local
+                                    git-commit-comment-branch-remote
+                                    git-commit-comment-detached
+                                    git-commit-comment-file
+                                    git-commit-comment-heading)))
   ;; Start a syntax check so that changes to
   ;; flymake-languagetool-ignore-faces-alist take effect.
   (flymake-start '(post-command on-display)))
