@@ -2,10 +2,6 @@
 
 ;;; Commentary:
 
-;; TODO: improve text-mode-hook: yaml, xml and probably other modes
-;;       inherit from text-mode instead of prog-mode. the hook logic
-;;       should not just enable languagetool everywhere.
-
 ;; TODO: make languagetool ignore "errors" in git_commit comments.
 ;;       this can probably be achieved by configuring
 ;;       flymake-languagetool-ignore-faces-alist.
@@ -29,9 +25,19 @@
                         (concat "/opt/" (user-login-name)
                                 "/LanguageTool/languagetool-server.jar"))
 
-(add-hook 'text-mode-hook #'(lambda()
-                              (flymake-languagetool-load)
-                              (flymake-mode)))
+(defun cnr/text-mode/flymake-languagetool ()
+  "Enable flymake and languagetool strictly for text-mode.
+
+This function is meant to be added to `text-mode-hook'. It enables
+flymake and languagetool if the buffer's major mode is exactly
+text-mode. This prevents languagetool from running for major modes that
+derive from text-mode, such as yaml-mode and nxml-mode."
+  (interactive)
+  (when (eq major-mode 'text-mode)
+    (flymake-languagetool-load)
+    (flymake-mode)))
+
+(add-hook 'text-mode-hook #'cnr/text-mode/flymake-languagetool)
 
 
 (provide 'init-flymake)
