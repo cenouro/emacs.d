@@ -2,6 +2,18 @@
 
 ;;; Commentary:
 ;;
+;; TODO: try to rely on autoloads instead of requiring magit and
+;;       magit-todos
+
+;; TODO: create a custom major mode and set `git-commit-major-mode'.
+;;       this will simplify the configuration of some variables that
+;;       are "major mode sensitive", such as
+;;       `flymake-languagetool-ignore-faces-alist'.
+
+;; TODO: rely on 'init-package instead of requiring package.
+
+;; TODO: refactor git-commit-setup-hook and ponder whether fill-column
+;;       72 is a necessity.
 
 ;;; Code:
 (require 'package)
