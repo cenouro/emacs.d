@@ -10,18 +10,15 @@
 ;;       are "major mode sensitive", such as
 ;;       `flymake-languagetool-ignore-faces-alist'.
 
-;; TODO: rely on 'init-package instead of requiring package.
-
 ;; TODO: refactor git-commit-setup-hook and ponder whether fill-column
 ;;       72 is a necessity.
 
 ;;; Code:
-(require 'package)
-
-(unless (package-installed-p 'magit)
-  (package-install 'magit))
-(unless (package-installed-p 'magit-todos)
-  (package-vc-install (github "alphapapa/magit-todos")))
+(with-eval-after-load 'init-package
+  (unless (package-installed-p 'magit)
+    (package-install 'magit))
+  (unless (package-installed-p 'magit-todos)
+    (package-vc-install (github "alphapapa/magit-todos"))))
 
 
 (require 'magit)
