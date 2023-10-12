@@ -10,9 +10,6 @@
 ;;       are "major mode sensitive", such as
 ;;       `flymake-languagetool-ignore-faces-alist'.
 
-;; TODO: refactor git-commit-setup-hook and ponder whether fill-column
-;;       72 is a necessity.
-
 ;;; Code:
 (with-eval-after-load 'init-package
   (unless (package-installed-p 'magit)
@@ -23,10 +20,10 @@
 
 (require 'magit)
 
-(add-hook 'git-commit-setup-hook #'(lambda ()
-                                     (git-commit-turn-on-flyspell)
-                                     (git-commit-turn-on-auto-fill)
-                                     (customize-set-variable 'fill-column 72)))
+(add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
+(add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
+(add-hook 'git-commit-setup-hook
+          (defun cnr/fill-column-72 () (setq fill-column 72)))
 
 
 (require 'magit-todos)
