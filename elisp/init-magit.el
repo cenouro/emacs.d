@@ -24,7 +24,9 @@
 (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
 (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
 (add-hook 'git-commit-setup-hook
-          (defun cnr/fill-column-72 () (setq fill-column 72)))
+          (progn
+            (defun cnr/fill-column-72 nil (setq fill-column 72))
+            #'cnr/fill-column-72))
 
 
 (require 'magit-todos)
