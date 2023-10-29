@@ -30,8 +30,10 @@
     - '{{ init_el }}'
     - '{{ elisp }}'
 
-- name: Create custom.el
-  ansible.builtin.shell:
-    cmd: touch '{{ custom_el }}'
-    creates: '{{ custom_el }}'
+- name: Create empty custom.el
+  ansible.builtin.file:
+    path: '{{ custom_el }}'
+    state: touch
+    access_time: preserve
+    modification_time: preserve
 ...
