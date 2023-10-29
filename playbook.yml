@@ -34,6 +34,7 @@
         - '{{ XDG_STATE_HOME }}'
 
   roles:
+    - emacs-snap
     - emacs
     - asdf-el
     - languagetool

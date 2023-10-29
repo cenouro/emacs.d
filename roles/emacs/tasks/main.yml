@@ -1,12 +1,4 @@
 ---
-- name: Install Emacs
-  community.general.snap:
-    name: emacs
-    channel: stable
-    classic: true
-    state: present
-  become: true
-
 - name: Install packages for native compilation
   ansible.builtin.apt:
     pkg:
@@ -42,12 +34,4 @@
   ansible.builtin.shell:
     cmd: touch '{{ custom_el }}'
     creates: '{{ custom_el }}'
-
-- name: Copy Emacs snap app launcher to ~/.local/share/applications/
-  ansible.builtin.copy:
-    src: /var/lib/snapd/desktop/applications/emacs_emacs.desktop
-    dest: /home/cenouro/.local/share/applications/emacs_emacs.desktop
-    mode: preserve
-    force: false
-  notify: Customize Emacs app launcher
 ...
