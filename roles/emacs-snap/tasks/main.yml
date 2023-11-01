@@ -13,5 +13,15 @@
     dest: /home/cenouro/.local/share/applications/emacs_emacs.desktop
     mode: preserve
     force: false
-  notify: Customize Emacs app launcher
+
+- name: Customize Emacs app launcher
+  ansible.builtin.lineinfile:
+    path: /home/cenouro/.local/share/applications/emacs_emacs.desktop
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  loop:
+    - regexp: '^Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/emacs_emacs.desktop /snap/bin/emacs %F'
+      line: 'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/emacs_emacs.desktop /snap/bin/emacs --maximized %F'
+    - regexp: '^Icon=/snap/emacs/'
+      line: 'Icon=/snap/emacs/current/usr/share/icons/hicolor/scalable/apps/emacs.svg'
 ...
