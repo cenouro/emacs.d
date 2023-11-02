@@ -21,12 +21,13 @@
 
 (require 'magit)
 
-(add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
-(add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
-(add-hook 'git-commit-setup-hook
-          (progn
-            (defun cnr/fill-column-72 nil (setq fill-column 72))
-            #'cnr/fill-column-72))
+(with-eval-after-load 'git-commit
+  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
+  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
+  (add-hook 'git-commit-setup-hook
+            (progn
+              (defun cnr/fill-column-72 nil (setq fill-column 72))
+              #'cnr/fill-column-72)))
 
 
 (require 'magit-todos)
