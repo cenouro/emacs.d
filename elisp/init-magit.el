@@ -5,11 +5,6 @@
 ;; TODO: try to rely on autoloads instead of requiring magit and
 ;;       magit-todos
 
-;; TODO: create a custom major mode and set `git-commit-major-mode'.
-;;       this will simplify the configuration of some variables that
-;;       are "major mode sensitive", such as
-;;       `flymake-languagetool-ignore-faces-alist'.
-
 ;;; Code:
 (with-eval-after-load 'init-package
   (unless (package-installed-p 'magit)
@@ -20,7 +15,14 @@
 
 (require 'magit)
 
+(define-derived-mode cnr/git-commit-mode text-mode "Commit"
+  "Major mode for editing Git commit messages.
+Intended to be used as `git-commit-major-mode', thus simplifying
+configuration and customization.")
+
 (with-eval-after-load 'git-commit
+  (customize-set-variable 'git-commit-major-mode #'cnr/git-commit-mode)
+
   (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
   (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
   (add-hook 'git-commit-setup-hook
