@@ -2,8 +2,8 @@
 
 ;;; Commentary:
 ;;
-;; TODO: try to rely on autoloads instead of requiring magit and
-;;       magit-todos
+;; TODO: rework magit and magit-todos require logic, maybe with
+;;       emacs-startup-hook
 
 ;;; Code:
 (with-eval-after-load 'init-package
