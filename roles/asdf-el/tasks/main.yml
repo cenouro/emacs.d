@@ -1,7 +1,0 @@
----
-- name: Clone repository
-  ansible.builtin.git:
-    repo: https://github.com/cenouro/asdf.el.git
-    dest: '{{ HOME }}/.emacs.d/asdf.el'
-    depth: 1
-...

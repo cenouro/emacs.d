@@ -36,7 +36,6 @@
   roles:
     - emacs-snap
     - emacs
-    - asdf-el
     - languagetool
     - gnome
 
