@@ -8,9 +8,7 @@
 ;;; Code:
 (with-eval-after-load 'init-package
   (unless (package-installed-p 'magit)
-    (package-install 'magit))
-  (unless (package-installed-p 'magit-todos)
-    (package-vc-install (github "alphapapa/magit-todos"))))
+    (package-install 'magit)))
 
 
 (require 'magit)
@@ -31,8 +29,15 @@ configuration and customization.")
               #'cnr/fill-column-72)))
 
 
-(require 'magit-todos)
-(magit-todos-mode 1)
+;; magit-todos
+(with-eval-after-load 'init-package
+  (unless (package-installed-p 'magit-todos)
+    (package-vc-install (github "alphapapa/magit-todos")))
+
+  (with-eval-after-load 'magit
+    (require 'magit-todos)
+    (magit-todos-mode 1)))
+
 
 (provide 'init-magit)
 ;;; init-magit.el ends here
