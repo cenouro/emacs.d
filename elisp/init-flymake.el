@@ -2,12 +2,6 @@
 
 ;;; Commentary:
 
-;; TODO: check whether (require 'flymake-languagetool) is really
-;;       necessary or if we can rely on autoload.
-
-;; TODO: check whether (require 'flymake) is really necessary or if we
-;;       can rely on autoload.
-
 ;;; Code:
 (require 'flymake)
 
