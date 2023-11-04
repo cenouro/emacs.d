@@ -1,9 +1,6 @@
 ;;; init-magit.el --- Magit configuration  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
-;; TODO: rework magit and magit-todos require logic, maybe with
-;;       emacs-startup-hook
 
 ;;; Code:
 (with-eval-after-load 'init-package
