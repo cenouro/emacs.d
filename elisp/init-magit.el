@@ -8,25 +8,24 @@
 ;;; Code:
 (with-eval-after-load 'init-package
   (unless (package-installed-p 'magit)
-    (package-install 'magit)))
+    (package-install 'magit))
 
-
-(require 'magit)
+  (require 'magit)
 
-(define-derived-mode cnr/git-commit-mode text-mode "Commit"
-  "Major mode for editing Git commit messages.
+  (with-eval-after-load 'git-commit
+    (define-derived-mode cnr/git-commit-mode text-mode "Commit"
+      "Major mode for editing Git commit messages.
 Intended to be used as `git-commit-major-mode', thus simplifying
 configuration and customization.")
 
-(with-eval-after-load 'git-commit
-  (customize-set-variable 'git-commit-major-mode #'cnr/git-commit-mode)
+    (customize-set-variable 'git-commit-major-mode #'cnr/git-commit-mode)
 
-  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
-  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
-  (add-hook 'git-commit-setup-hook
-            (progn
-              (defun cnr/fill-column-72 nil (setq fill-column 72))
-              #'cnr/fill-column-72)))
+    (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
+    (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
+    (add-hook 'git-commit-setup-hook
+              (progn
+                (defun cnr/fill-column-72 nil (setq fill-column 72))
+                #'cnr/fill-column-72))))
 
 
 ;; magit-todos
