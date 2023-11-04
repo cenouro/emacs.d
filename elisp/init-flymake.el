@@ -21,17 +21,9 @@
                         (concat "/opt/" (user-login-name)
                                 "/LanguageTool/languagetool-server.jar"))
 
-(defun cnr/text-mode/flymake-languagetool ()
-  "Enable flymake and languagetool strictly for text-mode.
-
-This function is meant to be added to `text-mode-hook'. It enables
-flymake and languagetool if the buffer's major mode is exactly
-text-mode. This prevents languagetool from running for major modes that
-derive from text-mode, such as yaml-mode and nxml-mode."
-  (interactive)
-  (when (eq major-mode 'text-mode)
-    (flymake-languagetool-load)
-    (flymake-mode)))
+(with-eval-after-load 'init-magit
+  (add-hook 'cnr/git-commit-mode-hook #'flymake-languagetool-load)
+  (add-hook 'cnr/git-commit-mode-hook #'flymake-mode 90))
 
 (defun cnr/git-commit/disable-languagetool-in-comments ()
   (interactive)
@@ -47,8 +39,6 @@ derive from text-mode, such as yaml-mode and nxml-mode."
   ;; Start a syntax check so that changes to
   ;; flymake-languagetool-ignore-faces-alist take effect.
   (flymake-start '(post-command on-display)))
-
-(add-hook 'text-mode-hook #'cnr/text-mode/flymake-languagetool)
 
 (with-eval-after-load 'git-commit
   (add-hook 'git-commit-setup-hook
