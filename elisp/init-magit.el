@@ -15,8 +15,10 @@
   (with-eval-after-load 'git-commit
     (define-derived-mode cnr/git-commit-mode text-mode "Commit"
       "Major mode for editing Git commit messages.
-Intended to be used as `git-commit-major-mode', thus simplifying
-configuration and customization.")
+
+Intended to be used as `git-commit-major-mode'. A lot of modes
+derive from `text-mode' (e.g. nxml-mode); using a dedicated major
+mode for commit messages allows for simpler customization.")
 
     (customize-set-variable 'git-commit-major-mode #'cnr/git-commit-mode)
 
