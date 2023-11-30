@@ -30,6 +30,9 @@
       (package-install major))
     (require major)))
 
+(unless (package-installed-p 'graphviz-dot-mode)
+  (package-vc-install (github "ppareit/graphviz-dot-mode")))
+
 
 (provide 'init-prog)
 ;;; init-prog.el ends here
