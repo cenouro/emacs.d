@@ -23,7 +23,8 @@
 
 
 ;; Languages/major modes
-(dolist (major '(markdown-mode
+(dolist (major '(apache-mode
+                 markdown-mode
                  yaml-mode))
   (progn
     (unless (package-installed-p major)
