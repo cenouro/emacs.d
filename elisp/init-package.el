@@ -1,25 +1,15 @@
-;;; init-package.el --- package.el configurations -*- lexical-binding: t; -*-
+;;; init-package.el --- package.el configuration -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
-;; Besides initializing and configuring package.el, this file also
-;; installs dash.el, s.el and f.el, which are common dependencies for
-;; some other packages.
+;; Initializes and configures package.el. This file also installs
+;; dash.el, s.el and f.el, which are common dependencies for some
+;; other packages.
 
-;; The main goal of this file is to be used with `with-eval-after-load':
-
-;; Instead of
-;;   (with-eval-after-load 'package ...)
-;; Use
-;;   (with-eval-after-load 'init-package ...)
-
-;; This not only ensures that package.el has been required, but also
-;; that the pertinent configurations have been applied.
-
-;; Note that neither MELPA nor MELPA Stable are used. These archives can
-;; become unavailable for some hours (probably because all packages are
-;; being rebuilt), making Emacs unresponsive if package-refresh-contents
-;; is used.
+;; Note that neither MELPA nor MELPA Stable are used. These archives
+;; can become unavailable for some hours (probably because all
+;; packages are being rebuilt), making Emacs unresponsive if
+;; package-refresh-contents is used.
 
 ;;; Code:
 
@@ -60,7 +50,5 @@
                    (expand-file-name "f-shortdoc.el" dumpster)
                    'noclobber)))
 
-
 (provide 'init-package)
-
 ;;; init-package.el ends here
