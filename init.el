@@ -26,6 +26,7 @@
 (require 'init-prog)
 (require 'init-asdf)
 (require 'init-ansible)
+(require 'init-elisp)
 (require 'init-git)
 (require 'init-magit)
 (require 'init-vdiff)
