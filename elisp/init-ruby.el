@@ -1,25 +1,23 @@
-;;; init-ruby.el --- Ruby configuration  -*- lexical-binding: t; -*-
+;;; init-ruby.el --- Settings for Ruby and Rails  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
 
 ;;; Code:
-(with-eval-after-load 'init-package
-  (unless (package-installed-p 'inf-ruby)
-    (package-install 'inf-ruby))
-  (unless (package-installed-p 'yari)
-    (package-vc-install (github "hron/yari.el"))))
+(require 'init-package)
+(require 'ruby-mode)
 
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
+(add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
 
-(with-eval-after-load 'ruby-mode
-  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
-  (define-key ruby-mode-map (kbd "C-c ?") #'yari)
+(unless (package-installed-p 'yari)
+  (package-vc-install (github "hron/yari.el")))
+(define-key ruby-mode-map (kbd "C-c ?") #'yari)
 
-  (with-eval-after-load 'compile
-    (add-to-list 'compilation-error-regexp-alist-alist
-                 '(rails-minitest-failure "\\[\\(.*?.rb\\):\\([0-9]+\\)\\]:$" 1 2))
-    (add-to-list 'compilation-error-regexp-alist 'rails-minitest-failure)))
-
+(with-eval-after-load 'compile
+  (add-to-list 'compilation-error-regexp-alist-alist
+               '(rails-minitest-failure "\\[\\(.*?.rb\\):\\([0-9]+\\)\\]:$" 1 2))
+  (add-to-list 'compilation-error-regexp-alist 'rails-minitest-failure))
 
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
