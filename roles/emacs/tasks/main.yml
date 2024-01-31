@@ -36,4 +36,7 @@
     state: touch
     access_time: preserve
     modification_time: preserve
+
+- name: Include inf-ruby.yml
+  include_tasks: inf-ruby.yml
 ...

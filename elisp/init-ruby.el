@@ -19,5 +19,7 @@
                '(rails-minitest-failure "\\[\\(.*?.rb\\):\\([0-9]+\\)\\]:$" 1 2))
   (add-to-list 'compilation-error-regexp-alist 'rails-minitest-failure))
 
+(add-to-list 'auto-mode-alist '("/\\.irbrc\\'" . ruby-mode))
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here
