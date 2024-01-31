@@ -6,6 +6,9 @@
 (require 'init-package)
 
 (require 'flymake)
+(define-key flymake-mode-map (kbd "C-c f p") #'flymake-goto-prev-error)
+(define-key flymake-mode-map (kbd "C-c f n") #'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "C-c f f") #'flymake-show-buffer-diagnostics)
 
 
 (unless (package-installed-p 'flymake-languagetool)
