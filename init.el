@@ -4,12 +4,11 @@
 ;;
 
 ;;; Code:
-
-(customize-set-variable 'custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
+;; These must be run before everything
 (add-to-list 'load-path (locate-user-emacs-file "elisp"))
+(require 'init-custom)
 
+
 (require 'init-package)
 
 (require 'init-emacs)
