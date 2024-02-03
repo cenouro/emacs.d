@@ -94,20 +94,6 @@ See `comint-send-invisible' for security note."
 (show-paren-mode 1)
 (customize-set-variable 'show-paren-delay 0)
 
-(defun cnr/show-paren--default ()
-  "Slightly improved version of `show-paren--default'.
-When point is before a closing parenthesis, highlight the opening one.
-
-This differs from `show-paren--default', which highlights the
-opening parenthesis only when point is after the closing one."
-  (if (looking-at "\\s)")
-      (save-excursion (forward-char 1) (funcall #'show-paren--default))
-    (funcall #'show-paren--default)))
-
-(customize-set-variable 'show-paren-data-function
-                        #'cnr/show-paren--default
-                        "Make show-paren behave sanely")
-
 
 ;;; Auto-save and backups
 ;;
