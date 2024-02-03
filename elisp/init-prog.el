@@ -12,6 +12,7 @@
 
 
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+(add-hook 'prog-mode-hook #'(lambda () (setq truncate-lines t)))
 
 
 (require 'hl-todo)

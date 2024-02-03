@@ -10,5 +10,7 @@
   (package-install 'yaml-mode))
 (require 'yaml-mode)
 
+(add-hook 'yaml-mode-hook #'(lambda () (setq truncate-lines t)))
+
 (provide 'init-yaml)
 ;;; init-yaml.el ends here
