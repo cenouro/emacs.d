@@ -58,10 +58,7 @@ See `comint-send-invisible' for security note."
 (set-fringe-mode 12)
 (customize-set-variable 'ring-bell-function #'ignore)
 
-(dolist (mode '(conf-mode-hook
-                prog-mode-hook
-                text-mode-hook))
-  (add-hook mode #'display-line-numbers-mode))
+;; Don't show line numbers, but configure them just in case
 (customize-set-variable 'display-line-numbers-type 'visual)
 (customize-set-variable 'display-line-numbers-width 3)
 
