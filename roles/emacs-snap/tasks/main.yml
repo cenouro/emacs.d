@@ -26,4 +26,17 @@
       line: 'Exec=\1/snap/bin/emacs --maximized\2'
     - regexp: '^Icon=/snap/emacs/(?!current).*?/(.*)$'
       line: 'Icon=/snap/emacs/current/\1'
+
+- name: Disable startup notification
+  ansible.builtin.lineinfile:
+    path: /home/cenouro/.local/share/applications/emacs_emacs.desktop
+    line: '{{ item.line }}'
+    state: '{{ item.state }}'
+  loop:
+    - line: StartupNotify=true
+      state: absent
+    - line: StartupNotify=false
+      state: present
+    - line: StartupWMClass=Emacs
+      state: present
 ...
