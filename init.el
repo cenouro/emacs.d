@@ -12,6 +12,7 @@
 (require 'init-package)
 
 (require 'init-emacs)
+(require 'init-diminish)
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 

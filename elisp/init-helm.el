@@ -17,6 +17,8 @@
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 (helm-mode 1)
+(with-eval-after-load 'diminish
+  (diminish 'helm-mode))
 
 (provide 'init-helm)
 ;;; init-helm.el ends here
