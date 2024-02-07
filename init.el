@@ -13,6 +13,8 @@
 
 (require 'init-emacs)
 (require 'init-diminish)
+(require 'init-undo-tree)
+
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 
