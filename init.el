@@ -15,10 +15,12 @@
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 
-(require 'init-corfu)
-(require 'init-marginalia)
-(require 'init-orderless)
-(require 'init-vertico)
+;; (require 'init-corfu)
+;; (require 'init-marginalia)
+;; (require 'init-orderless)
+;; (require 'init-vertico)
+
+(require 'init-helm)
 
 (require 'init-flymake)
 (require 'init-eglot)
