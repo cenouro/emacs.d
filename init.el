@@ -23,6 +23,7 @@
 ;; (require 'init-orderless)
 ;; (require 'init-vertico)
 
+(require 'init-company)
 (require 'init-helm)
 
 (require 'init-flymake)
