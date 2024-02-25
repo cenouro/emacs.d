@@ -10,6 +10,8 @@
 
 (customize-set-variable 'undo-tree-history-directory-alist
                         '(("." . "~/.local/state/emacs/undo-tree")))
+(customize-set-variable 'undo-tree-incompatible-major-modes
+                        '(cnr/git-commit-mode term-mode))
 
 (global-undo-tree-mode)
 
