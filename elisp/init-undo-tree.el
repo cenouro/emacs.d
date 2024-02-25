@@ -8,6 +8,9 @@
   (package-install 'undo-tree))
 (require 'undo-tree)
 
+(customize-set-variable 'undo-tree-history-directory-alist
+                        '(("." . "~/.local/state/emacs/undo-tree")))
+
 (global-undo-tree-mode)
 
 (provide 'init-undo-tree)
