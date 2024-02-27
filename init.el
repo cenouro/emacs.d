@@ -18,11 +18,6 @@
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 
-;; (require 'init-corfu)
-;; (require 'init-marginalia)
-;; (require 'init-orderless)
-;; (require 'init-vertico)
-
 (require 'init-company)
 (require 'init-helm)
 
