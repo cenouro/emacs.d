@@ -99,13 +99,15 @@ See `comint-send-invisible' for security note."
 
 ;;; Auto-save and backups
 ;;
+(customize-set-variable 'auto-save-list-file-prefix
+                        "~/.local/state/emacs/auto-saves/.saves-")
 (customize-set-variable 'auto-save-file-name-transforms
-                        `((".*" ,(concat user-emacs-directory "auto-save-list/") :uniquify)))
+                        '((".*" "~/.local/state/emacs/auto-saves/" t)))
 (customize-set-variable 'auto-save-interval 256)
 (customize-set-variable 'auto-save-timeout  120)
 
 (customize-set-variable 'backup-directory-alist
-                        `((".*" . ,(concat user-emacs-directory "backups"))))
+                        '((".*" . "~/.local/state/emacs/backups")))
 (customize-set-variable  'backup-by-copying t "Don't clobber symbolic links")
 (customize-set-variable  'delete-old-versions t)
 (customize-set-variable  'kept-new-versions 6)
