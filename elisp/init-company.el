@@ -22,5 +22,13 @@
 
 (add-hook 'after-init-hook #'global-company-mode)
 
+(with-eval-after-load 'eglot
+  ;; Don't allow eglot to disable `company-dabbrev-code'.
+  ;;
+  ;; Note that it's still necessary to setup `company-backends' to use
+  ;; a "capf + dabbrev-code" GROUPED backend, otherwise the capf (used
+  ;; by the LSP) won't allow anything else to run.
+  (add-to-list 'eglot-stay-out-of 'company))
+
 (provide 'init-company)
 ;;; init-company.el ends here
