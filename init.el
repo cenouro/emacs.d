@@ -21,6 +21,7 @@
 (require 'init-company)
 (require 'init-helm)
 
+(require 'init-project)
 (require 'init-flymake)
 (require 'init-eglot)
 (require 'init-prog)
