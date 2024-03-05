@@ -24,11 +24,6 @@
 
 
 (with-eval-after-load 'eglot
-  (when (version<= emacs-version "30")
-    (advice-add #'jsonrpc-connection-receive :before
-                #'(lambda (connection message)
-                    (cl--do-remf message :requestMethod))
-                '((name . nuke-problematic-keywords))))
   (add-to-list 'eglot-server-programs
                '(ruby-mode . ("bundle" "exec"
                               "srb tc --lsp --disable-watchman"))))
