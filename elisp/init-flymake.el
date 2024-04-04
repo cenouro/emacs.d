@@ -10,6 +10,14 @@
 (define-key flymake-mode-map (kbd "C-c f n") #'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "C-c f f") #'flymake-show-buffer-diagnostics)
 
+(add-to-list 'display-buffer-alist
+             `(,(rx bos "*Flymake diagnostics for ")
+               (display-buffer-reuse-window
+                display-buffer-in-side-window)
+               (side            . bottom)
+               (reusable-frames . visible)
+               (window-height   . 0.2)))
+
 
 (unless (package-installed-p 'flymake-languagetool)
   (package-vc-install (github "emacs-languagetool/flymake-languagetool")))
