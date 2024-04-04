@@ -1,4 +1,4 @@
-;;; init-emacs.el --- General configurations  -*- lexical-binding: t; -*-
+;;; init-emacs.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

@@ -1,4 +1,4 @@
-;;; init-ace-window.el --- ace-window configuration  -*- lexical-binding: t; -*-
+;;; init-ace-window.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

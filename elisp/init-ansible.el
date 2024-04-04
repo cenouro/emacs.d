@@ -1,4 +1,4 @@
-;;; init-ansible.el --- Ansible configuration  -*- lexical-binding: t; -*-
+;;; init-ansible.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

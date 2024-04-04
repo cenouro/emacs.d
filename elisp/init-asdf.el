@@ -1,4 +1,4 @@
-;;; init-asdf.el --- asdf.el configuration  -*- lexical-binding: t; -*-
+;;; init-asdf.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 

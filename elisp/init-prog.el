@@ -1,4 +1,4 @@
-;;; init-prog.el --- Generic programming configurations  -*- lexical-binding: t; -*-
+;;; init-prog.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

@@ -1,4 +1,4 @@
-;;; init-flymake.el --- Flymake settings  -*- lexical-binding: t; -*-
+;;; init-flymake.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 

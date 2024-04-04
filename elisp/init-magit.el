@@ -1,4 +1,4 @@
-;;; init-magit.el --- Magit configuration  -*- lexical-binding: t; -*-
+;;; init-magit.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 

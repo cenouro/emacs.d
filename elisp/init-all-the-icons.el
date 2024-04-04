@@ -1,4 +1,4 @@
-;;; init-all-the-icons.el --- all-the-icons configuration  -*- lexical-binding: t; -*-
+;;; init-all-the-icons.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

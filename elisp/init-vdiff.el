@@ -1,4 +1,4 @@
-;;; init-vdiff.el --- Vdiff configuration  -*- lexical-binding: t; -*-
+;;; init-vdiff.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

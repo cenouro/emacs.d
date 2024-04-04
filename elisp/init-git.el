@@ -1,4 +1,4 @@
-;;; init-git.el --- git, vc-git and ediff configurations  -*- lexical-binding: t; -*-
+;;; init-git.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;

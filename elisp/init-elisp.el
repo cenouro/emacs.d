@@ -1,4 +1,4 @@
-;;; init-elisp.el --- Settings for Elisp  -*- lexical-binding: t; -*-
+;;; init-elisp.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 

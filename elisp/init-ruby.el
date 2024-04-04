@@ -1,4 +1,4 @@
-;;; init-ruby.el --- Settings for Ruby and Rails  -*- lexical-binding: t; -*-
+;;; init-ruby.el ---  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
