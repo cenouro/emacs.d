@@ -3,6 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
+(require 'init-custom)
 (require 'init-package)
 
 (require 'flymake)
@@ -33,17 +34,15 @@
     (flymake-mode 1)))
 
 (with-eval-after-load 'init-magit
-  (customize-set-variable
-   'flymake-languagetool-ignore-faces-alist
-   (add-to-list 'flymake-languagetool-ignore-faces-alist
-                '(cnr/git-commit-mode font-lock-comment-face
-                                      git-commit-comment-action
-                                      git-commit-comment-branch-local
-                                      git-commit-comment-branch-remote
-                                      git-commit-comment-detached
-                                      git-commit-comment-file
-                                      git-commit-comment-heading))
-   "Disable LanguageTool in Git commit comments.")
+  (my/add-to-list "Disable LanguageTool in Git commit comments."
+                  'flymake-languagetool-ignore-faces-alist
+                  '(cnr/git-commit-mode font-lock-comment-face
+                                        git-commit-comment-action
+                                        git-commit-comment-branch-local
+                                        git-commit-comment-branch-remote
+                                        git-commit-comment-detached
+                                        git-commit-comment-file
+                                        git-commit-comment-heading))
 
   (add-hook 'cnr/git-commit-mode-hook #'my/flymake-languagetool-load))
 

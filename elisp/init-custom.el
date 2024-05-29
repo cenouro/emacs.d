@@ -33,5 +33,18 @@ to `customize-set-variable'.
                             (nth 1 variable-and-value)
                             (string-trim (string-join comments " ")))))
 
+
+(defun my/add-to-list (comment list-var element &optional append compare-fn)
+  "My decorated `add-to-list'.
+
+Like `add-to-list', but actually uses `customize-set-variable'.
+
+COMMENT is passed to `customize-set-variable'.
+
+LIST-VAR, ELEMENT, APPEND and COMPARE-FN are passed to `add-to-list'."
+  (customize-set-variable list-var
+                          (add-to-list list-var element append compare-fn)
+                          comment))
+
 (provide 'init-custom)
 ;;; init-custom.el ends here
