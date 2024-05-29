@@ -26,6 +26,12 @@
                         (concat "/opt/" (user-login-name)
                                 "/LanguageTool/languagetool-server.jar"))
 
+(defun my/flymake-languagetool-load ()
+  "Load languagetool and then enable flymake."
+  (progn
+    (flymake-languagetool-load)
+    (flymake-mode 1)))
+
 (with-eval-after-load 'init-magit
   (customize-set-variable
    'flymake-languagetool-ignore-faces-alist
@@ -39,8 +45,7 @@
                                       git-commit-comment-heading))
    "Disable LanguageTool in Git commit comments.")
 
-  (add-hook 'cnr/git-commit-mode-hook #'flymake-languagetool-load)
-  (add-hook 'cnr/git-commit-mode-hook #'flymake-mode 90))
+  (add-hook 'cnr/git-commit-mode-hook #'my/flymake-languagetool-load))
 
 (provide 'init-flymake)
 ;;; init-flymake.el ends here
