@@ -39,4 +39,19 @@
       state: present
     - line: StartupWMClass=Emacs
       state: present
+
+- name: Copy Emacs (Client) snap app launcher to ~/.local/share/applications/
+  ansible.builtin.copy:
+    src: /var/lib/snapd/desktop/applications/emacs_emacsclient.desktop
+    dest: /home/cenouro/.local/share/applications/emacs_emacsclient.desktop
+    mode: preserve
+    force: false
+
+- name: Disable Emacs (Client)
+  ansible.builtin.lineinfile:
+    path: /home/cenouro/.local/share/applications/emacs_emacsclient.desktop
+    line: Hidden=true
+    state: present
+    insertafter: 'Name=Emacs \(Client\)'
+    firstmatch: true
 ...
