@@ -12,6 +12,8 @@
 (require 'init-package)
 
 (require 'init-emacs)
+(require 'init-modus-themes)
+
 (require 'init-diminish)
 (require 'init-undo-tree)
 
@@ -38,11 +40,6 @@
 (require 'init-ruby)
 
 
-(unless (package-installed-p 'modus-themes)
-  (package-install 'modus-themes))
-(require 'modus-themes)
-(load-theme 'modus-operandi :no-confirm)
-
 (unless (package-installed-p 'page-break-lines)
   (package-install 'page-break-lines))
 (require 'page-break-lines)
