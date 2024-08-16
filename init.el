@@ -22,6 +22,7 @@
 
 ;; (require 'init-company)
 ;; (require 'init-helm)
+(require 'init-vertico)
 
 (require 'init-project)
 (require 'init-flymake)
