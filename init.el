@@ -20,8 +20,8 @@
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 
-(require 'init-company)
-(require 'init-helm)
+;; (require 'init-company)
+;; (require 'init-helm)
 
 (require 'init-project)
 (require 'init-flymake)
