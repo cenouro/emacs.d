@@ -24,6 +24,7 @@
 ;; (require 'init-helm)
 (require 'init-vertico)
 (require 'init-corfu)
+(require 'init-orderless)
 
 (require 'init-project)
 (require 'init-flymake)
