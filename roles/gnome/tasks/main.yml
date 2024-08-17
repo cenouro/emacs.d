@@ -1,7 +1,7 @@
 ---
 - name: Install dconf-editor and community.general.dconf dependency
-  ansible.builtin.apt:
-    pkg:
+  ansible.builtin.package:
+    name:
       - dconf-editor
       - python3-psutil
     state: present

@@ -8,4 +8,7 @@ elisp:
   dest: '{{ emacs_d }}/elisp'
 
 custom_el: '{{ emacs_d }}/custom.el'
+
+Fedora_jetbrains_mono_fonts: 'jetbrains-mono-fonts-all'
+Ubuntu_jetbrains_mono_fonts: 'fonts-jetbrains-mono'
 ...

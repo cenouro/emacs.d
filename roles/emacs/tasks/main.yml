@@ -1,7 +1,7 @@
 ---
 - name: Install JetBrains Mono
-  ansible.builtin.apt:
-    pkg: fonts-jetbrains-mono
+  ansible.builtin.package:
+    name: "{{ lookup('ansible.builtin.vars', DISTRO + '_jetbrains_mono_fonts') }}"
     state: present
   become: true
 

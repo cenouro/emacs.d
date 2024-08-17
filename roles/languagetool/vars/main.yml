@@ -1,4 +1,7 @@
 ---
 version: 6.2
 url: https://languagetool.org/download/LanguageTool-{{ version }}.zip
+
+Fedora_jre: java-latest-openjdk
+Ubuntu_jre: default-jre
 ...

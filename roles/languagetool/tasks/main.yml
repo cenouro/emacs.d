@@ -1,7 +1,7 @@
 ---
 - name: Install LanguageTool dependency
-  ansible.builtin.apt:
-    name: default-jre
+  ansible.builtin.package:
+    name: "{{ lookup('ansible.builtin.vars', DISTRO + '_jre') }}"
     state: present
   become: true
 
@@ -13,7 +13,6 @@
     owner: '{{ ansible_facts.user_id }}'
     group: '{{ ansible_facts.user_id }}'
     creates: '/opt/{{ ansible_facts.user_id }}/LanguageTool-{{ version }}'
-
 
 - name: Create symlink LanguageTool -> LanguageTool-{{ version }}
   ansible.builtin.file:

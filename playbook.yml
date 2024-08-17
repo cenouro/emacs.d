@@ -3,6 +3,8 @@
   connection: local
 
   vars:
+    - DISTRO: '{{ ansible_facts.distribution }}'
+
     - HOME: '{{ ansible_env.HOME }}'
     - PWD: '{{ ansible_env.PWD }}'
 
@@ -34,7 +36,7 @@
         - '{{ XDG_STATE_HOME }}'
 
   roles:
-    - emacs-snap
+    - install-emacs
     - emacs
     - languagetool
     - gnome
