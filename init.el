@@ -20,8 +20,6 @@
 (require 'init-ace-window)
 (require 'init-all-the-icons)
 
-;; (require 'init-company)
-;; (require 'init-helm)
 (require 'init-vertico)
 (require 'init-corfu)
 (require 'init-orderless)
