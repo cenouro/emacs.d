@@ -1,7 +1,10 @@
 ---
+- name: Load variables
+  ansible.builtin.include_vars: '{{ DISTRO }}.yml'
+
 - name: Install JetBrains Mono
   ansible.builtin.package:
-    name: "{{ lookup('ansible.builtin.vars', DISTRO + '_jetbrains_mono_fonts') }}"
+    name: '{{ jetbrains_mono_fonts }}'
     state: present
   become: true
 

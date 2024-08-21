@@ -1,7 +1,10 @@
 ---
+- name: Load variables
+  ansible.builtin.include_vars: '{{ DISTRO }}.yml'
+
 - name: Install LanguageTool dependency
   ansible.builtin.package:
-    name: "{{ lookup('ansible.builtin.vars', DISTRO + '_jre') }}"
+    name: '{{ java_runtime_environment }}'
     state: present
   become: true
 
